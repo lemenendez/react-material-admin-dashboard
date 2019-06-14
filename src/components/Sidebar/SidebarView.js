@@ -14,6 +14,7 @@ import {
   LibraryBooks as LibraryIcon,
   HelpOutline as FAQIcon,
   ArrowBack as ArrowBackIcon,
+  AccountBox as AdAccountIcon
 } from "@material-ui/icons";
 import classNames from 'classnames';
 
@@ -24,9 +25,10 @@ const structure = [
   { id: 0, label: 'Dashboard', link: '/app/dashboard', icon: <HomeIcon /> },
   { id: 1, label: 'Typography', link: '/app/typography', icon: <TypographyIcon /> },
   { id: 2, label: 'Tables', link: '/app/tables', icon: <TableIcon /> },
-  { id: 3, label: 'Notifications', link: '/app/notifications', icon: <NotificationsIcon />},
+  { id: 4, label: 'Ad Accounts', link: '/app/adaccounts', icon: <AdAccountIcon /> },
+  { id: 5, label: 'Notifications', link: '/app/notifications', icon: <NotificationsIcon />},
   {
-    id: 4,
+    id: 6,
     label: 'UI Elements',
     link: '/app/ui',
     icon: <UIElementsIcon />,
@@ -36,16 +38,16 @@ const structure = [
       { label: 'Maps', link: '/app/ui/maps' },
     ],
   },
-  { id: 5, type: 'divider' },
-  { id: 6, type: 'title', label: 'HELP' },
-  { id: 7, label: 'Library', link: '', icon: <LibraryIcon /> },
-  { id: 8, label: 'Support', link: '', icon: <SupportIcon /> },
-  { id: 9, label: 'FAQ', link: '', icon: <FAQIcon />},
-  { id: 10, type: 'divider' },
-  { id: 11, type: 'title', label: 'PROJECTS' },
-  { id: 12, label: 'My recent', link: '', icon: <Dot size="large" color="warning" /> },
-  { id: 13, label: 'Starred', link: '', icon: <Dot size="large" color="primary" /> },
-  { id: 14, label: 'Background', link: '', icon: <Dot size="large" color="secondary" /> },
+  { id: 7, type: 'divider' },
+  { id: 8, type: 'title', label: 'HELP' },
+  { id: 9, label: 'Library', link: '', icon: <LibraryIcon /> },
+  { id: 10, label: 'Support', link: '', icon: <SupportIcon /> },
+  { id: 11, label: 'FAQ', link: '', icon: <FAQIcon />},
+  { id: 12, type: 'divider' },
+  { id: 13, type: 'title', label: 'PROJECTS' },
+  { id: 14, label: 'My recent', link: '', icon: <Dot size="large" color="warning" /> },
+  { id: 15, label: 'Starred', link: '', icon: <Dot size="large" color="primary" /> },
+  { id: 16, label: 'Background', link: '', icon: <Dot size="large" color="secondary" /> },
 ];
 
 const SidebarView = ({ classes, theme, toggleSidebar, isSidebarOpened, isPermanent, location }) => {

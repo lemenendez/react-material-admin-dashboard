@@ -7,11 +7,12 @@ import Header from '../Header';
 import Sidebar from '../Sidebar';
 
 // pages
-import Dashboard from '../../pages/dashboard';
-import Typography from '../../pages/typography';
-import Notifications from '../../pages/notifications';
-import Maps from '../../pages/maps';
-import Tables from '../../pages/tables';
+import Dashboard from '../../pages/dashboard'
+import Typography from '../../pages/typography'
+import Notifications from '../../pages/notifications'
+import Maps from '../../pages/maps'
+import Tables from '../../pages/tables'
+import AdAccounts from '../../pages/adaccounts'
 import Icons from '../../pages/icons';
 import Charts from '../../pages/charts';
 
@@ -33,6 +34,7 @@ const Layout = ({ classes, isSidebarOpened, toggleSidebar }) => (
             <Route path="/app/ui/maps" component={Maps} />
             <Route path="/app/ui/icons" component={Icons} />
             <Route path="/app/ui/charts" component={Charts} />
+            <Route path="/app/adaccounts" component={AdAccounts} />
           </Switch>
         </div>
       </React.Fragment>

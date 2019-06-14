@@ -1,6 +1,50 @@
 export default {
 
  
+  adaccounts: [
+    {
+      id: 1,
+      accountid: '73738d838823',      
+      date: '2019-05-22',
+      status: 'linked'
+    },
+    {
+      id: 2,
+      accountid: '889954544455',
+      date: '2019-05-22',
+      status: 'notlinked'      
+    },
+    {
+      id: 3,
+      accountid: '223444553234',
+      date: '2019-05-22',
+      status: 'pending'      
+    },
+    {
+      id: 4,
+      accountid: '123455566343',
+      date: '2019-05-22',
+      status: 'pending'      
+    },
+    {
+      id: 5,
+      accountid: '123455566343',
+      date: '2019-05-22',
+      status: 'pending'      
+    },
+    {
+      id: 6,
+      accountid: '123455566343',
+      date: '2019-05-22',
+      status: 'pending'      
+    },
+    {
+      id: 7,
+      accountid: '123455566343',
+      date: '2019-05-22',
+      status: 'linked'      
+    }
+  ],
   tasks: [
     {
       id: 0,
