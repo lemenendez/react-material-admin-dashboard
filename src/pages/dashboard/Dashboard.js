@@ -68,7 +68,93 @@ const getMainChartData = () => {
   return resultArray;
 };
 
+const getLeadsData = () => {
+  const resultArray = [];
+
+  resultArray.push({
+    id: 0,
+    date: '2019-06-01',
+    leads: 25,
+    views: 125
+  })
+
+  resultArray.push({
+    id: 1,
+    date: '2019-06-02',
+    leads: 25,
+    views: 250
+  })
+
+  resultArray.push({
+    id: 2,
+    date: '2019-06-03',
+    leads: 4,
+    views: 110
+  })
+
+
+  resultArray.push({
+    id: 3,
+    date: '2019-06-04',
+    leads: 8,
+    views: 120
+  })
+
+
+  resultArray.push({
+    id: 4,
+    date: '2019-06-05',
+    leads: 41,
+    views: 250
+  })
+
+
+  resultArray.push({
+    id: 5,
+    date: '2019-06-06',
+    leads: 12,
+    views: 235
+  })
+
+
+  resultArray.push({
+    id: 6,
+    date: '2019-06-07',
+    leads: 24,
+    views: 50
+  }) 
+
+  /*let ad = {
+    id: 0,
+    date: '2019-06-01',
+    leads: 25,
+    views: 400
+  }
+  resultArray.push(ad)
+  
+  ad = {
+    id: 1,
+    date: '2019-06-02',
+    leads: 2,
+    views: 500
+  }
+  resultArray.push(ad)
+
+  ad = {
+    id: 1,
+    date: '2019-06-03',
+    leads: 4,
+    views: 500
+  }
+  resultArray.push(ad)
+  */
+  console.log(resultArray)
+  return resultArray
+}
+
 const mainChartData = getMainChartData();
+
+const leadsData = getLeadsData();
 
 const PieChartData = [
   { name: "Group A", value: 400, color: "primary" },
@@ -82,6 +168,7 @@ const Dashboard = ({ classes, theme, ...props }) => {
     <React.Fragment>
       <PageTitle title="Dashboard" button="Latest Reports" />
       <Grid container spacing={32}>
+        {/* 
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Widget
             title="Visits Today"
@@ -135,6 +222,10 @@ const Dashboard = ({ classes, theme, ...props }) => {
             </Grid>
           </Widget>
         </Grid>
+        */}
+        
+        {/* 
+
         <Grid item lg={3} md={8} sm={6} xs={12}>
           <Widget
             title="App Performance"
@@ -194,6 +285,9 @@ const Dashboard = ({ classes, theme, ...props }) => {
             </div>
           </Widget>
         </Grid>
+        */}
+
+        {/* 
         <Grid item lg={3} md={8} sm={6} xs={12}>
           <Widget
             title="Server Overview"
@@ -269,6 +363,9 @@ const Dashboard = ({ classes, theme, ...props }) => {
             </div>
           </Widget>
         </Grid>
+        */ }
+
+        {/* 
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Widget title="Revenue Breakdown" upperTitle className={classes.card}>
             <Grid container spacing={16}>
@@ -309,26 +406,25 @@ const Dashboard = ({ classes, theme, ...props }) => {
             </Grid>
           </Widget>
         </Grid>
+        */ }
+
+        
         <Grid item xs={12}>
           <Widget
             bodyClass={classes.mainChartBody}
             header={
               <div className={classes.mainChartHeader}>
                 <Typography variant="headline" color="textSecondary">
-                  Daily Line Chart
+                  Últimos 7 Días
                 </Typography>
                 <div className={classes.mainChartHeaderLabels}>
                   <div className={classes.mainChartHeaderLabel}>
                     <Dot color="warning" />
-                    <Typography className={classes.mainChartLegentElement}>Tablet</Typography>
+                    <Typography className={classes.mainChartLegentElement}>Leads</Typography>
                   </div>
                   <div className={classes.mainChartHeaderLabel}>
                     <Dot color="primary" />
-                    <Typography className={classes.mainChartLegentElement}>Mobile</Typography>
-                  </div>
-                  <div className={classes.mainChartHeaderLabel}>
-                    <Dot color="primary" />
-                    <Typography className={classes.mainChartLegentElement}>Desktop</Typography>
+                    <Typography className={classes.mainChartLegentElement}>Views</Typography>
                   </div>
                 </div>
                 <Select
@@ -342,48 +438,51 @@ const Dashboard = ({ classes, theme, ...props }) => {
                   }
                   autoWidth
                 >
-                  <MenuItem value="daily">Daily</MenuItem>
-                  <MenuItem value="weekly">Weekly</MenuItem>
-                  <MenuItem value="monthly">Monthly</MenuItem>
+                  <MenuItem value="last7days">Últimos 7 Días</MenuItem>
+                  <MenuItem value="last30days">Últimos 30 Días</MenuItem>                  
                 </Select>
               </div>
             }
           >
+            
             <ResponsiveContainer width="100%" minWidth={500} height={350}>
               <ComposedChart
                 margin={{ top: 0, right: -15, left: -15, bottom: 0 }}
-                data={mainChartData}
+                data={getLeadsData()}
               >
                 <YAxis
-                  ticks={[0, 2500, 5000, 7500]}
+                  ticks={[0, 100, 200, 300]}
                   tick={{ fill: theme.palette.text.hint + '80', fontSize: 14 }}
                   stroke={theme.palette.text.hint  + '80'}
                   tickLine={false}
                 />
                 <XAxis
-                  tickFormatter={i => i + 1}
+                  dataKey="date"
+                  /* tickFormatter={i => i + 1}*/
                   tick={{ fill: theme.palette.text.hint  + '80', fontSize: 14 }}
                   stroke={theme.palette.text.hint  + '80'}
                   tickLine={false}
                 />
+                {/* 
                 <Area
                   type="natural"
-                  dataKey="desktop"
+                  dataKey="leads"
                   fill={theme.palette.background.light}
                   strokeWidth={0}
                   activeDot={false}
                 />
+                */}
                 <Line
                   type="natural"
-                  dataKey="mobile"
+                  dataKey="views"
                   stroke={theme.palette.primary.main}
                   strokeWidth={2}
                   dot={false}
                   activeDot={false}
-                />
+                />                
                 <Line
                   type="linear"
-                  dataKey="tablet"
+                  dataKey="leads"
                   stroke={theme.palette.warning.main}
                   strokeWidth={2}
                   dot={{
@@ -391,16 +490,17 @@ const Dashboard = ({ classes, theme, ...props }) => {
                     strokeWidth: 2,
                     fill: theme.palette.warning.main
                   }}
-                />
+                />                
               </ComposedChart>
             </ResponsiveContainer>
           </Widget>
         </Grid>
-        {mock.bigStat.map(stat => (
+        {/*mock.bigStat.map(stat => (
           <Grid item md={4} sm={6} xs={12} key={stat.product}>
             <BigStat {...stat} />
           </Grid>
-        ))}
+        ))*/}
+        {/* 
         <Grid item xs={12}>
           <Widget
             title="Support Requests"
@@ -411,7 +511,9 @@ const Dashboard = ({ classes, theme, ...props }) => {
             <Table data={mock.table} />
           </Widget>
         </Grid>
+        */}
       </Grid>
+        
     </React.Fragment>
   );
 };
